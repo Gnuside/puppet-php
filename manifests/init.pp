@@ -1,5 +1,5 @@
 
-class php5 {
+class php {
 #install php5 and required modules
 #install php5 for apache
 
