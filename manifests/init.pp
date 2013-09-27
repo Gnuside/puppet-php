@@ -11,12 +11,7 @@ class php {
     "php5-mcrypt": ensure => installed, notify => Class["apache2::service"];
   }
 
-  file { 
-  "/var/www/phpmyadmin":
-    target => "/usr/share/phpmyadmin",
-    ensure => link,
-    require => Package['phpmyadmin'];
-
+  file {
   "/etc/apache2/conf.d/phpmyadmin.conf":
     target => "/etc/phpmyadmin/apache.conf",
     ensure => link,
