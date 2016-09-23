@@ -12,10 +12,16 @@ class php {
   }
 
   file {
+  "/etc/apache2/conf.d":
+    ensure => directory,
+    require => [Package['phpmyadmin'],Package['apache2']];
+  }
+
+  file {
   "/etc/apache2/conf.d/phpmyadmin.conf":
     target => "/etc/phpmyadmin/apache.conf",
     ensure => link,
-    require => [Package['phpmyadmin'],Package['apache2']],
+    require => [Package['phpmyadmin'],Package['apache2'],File['/etc/apache2/conf.d']],
     notify => Class["apache2::service"];
   }
 }
