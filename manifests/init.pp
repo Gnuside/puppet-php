@@ -18,7 +18,7 @@ class php {
   }
 
   file {
-  "/etc/apache2/conf.d/phpmyadmin.conf":
+  "/etc/apache2/conf-enabled/phpmyadmin.conf":
     target => "/etc/phpmyadmin/apache.conf",
     ensure => link,
     require => [Package['phpmyadmin'],Package['apache2'],File['/etc/apache2/conf.d']],
